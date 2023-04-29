@@ -7,7 +7,9 @@ import {
   Delete,
   Param,
   Query,
+  Session,
   NotFoundException,
+  BadRequestException,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
@@ -15,6 +17,8 @@ import { UpdateUserDto } from './dtos/update-user.dto';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { UserDto } from './dtos/user.dto';
 import { AuthService } from './auth.service';
+import { CurrentUser } from './decorators/current-user.decorator';
+import { User } from './user.entity';
 
 @Controller('auth')
 @Serialize(UserDto)
@@ -25,13 +29,42 @@ export class UsersController {
   ) {}
 
   @Post('/signup')
-  createUser(@Body() body: CreateUserDto) {
-    return this.authService.signUp(body.email, body.password);
+  async createUser(@Body() body: CreateUserDto, @Session() session: any) {
+    const user = await this.authService.signUp(body.email, body.password);
+    session.userId = user.id;
+    return user;
   }
 
   @Post('/signin')
-  signInUser(@Body() body: CreateUserDto) {
-    return this.authService.signIn(body.email, body.password);
+  async signInUser(@Body() body: CreateUserDto, @Session() session: any) {
+    const user = await this.authService.signIn(body.email, body.password);
+    session.userId = user.id;
+    return user;
+  }
+
+  // @Get('/whoami')
+  // whoAmI(@Session() session: any) {
+  //   const id = session.userId;
+  //   if (!id) {
+  //     throw new BadRequestException('User Not Signin');
+  //   }
+  //   return this.userService.findOne(session.userId);
+  // }
+
+  @Get('/whoami')
+  whoAmI(@CurrentUser() user: User) {
+    if (!user) {
+      throw new BadRequestException('User Not Signin');
+    }
+    return user;
+  }
+
+  @Get('/signout')
+  signOut(@Session() session: any) {
+    if (!session.userId) {
+      throw new BadRequestException('User not Logged in');
+    }
+    session.userId = null;
   }
 
   @Get('/:id')
