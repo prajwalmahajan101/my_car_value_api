@@ -16,7 +16,7 @@ describe('Authentication System (e2e)', () => {
   });
 
   it('handles a singup request', () => {
-    const email = 'asdf@asdf.com';
+    const email = 'asdf@asdf123asdasdas.com';
     return request(app.getHttpServer())
       .post('/auth/signup')
       .send({
