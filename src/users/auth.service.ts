@@ -1,7 +1,9 @@
 import {
   BadRequestException,
+  UnauthorizedException,
   Injectable,
   NotFoundException,
+  ConflictException,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { randomBytes, scrypt as _scrypt } from 'crypto';
@@ -17,7 +19,7 @@ export class AuthService {
     // Find if the email is already Taken
     const users = await this.userService.find(email);
     if (users.length) {
-      throw new BadRequestException('Email is already Taken');
+      throw new ConflictException('Email is already Taken');
     }
 
     // Create salt
@@ -43,7 +45,7 @@ export class AuthService {
     // recreate the Hashed and salted Password
     const hash = (await scrypt(password, salt, 32)) as Buffer;
     if (storedHash !== hash.toString('hex')) {
-      throw new BadRequestException('Wrong Password');
+      throw new UnauthorizedException('Wrong Password');
     }
     return user;
   }
