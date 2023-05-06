@@ -1,0 +1,873 @@
+openapi: 3.0.0
+info:
+  title: My Car Value APIs Actual
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: Auth
+  - name: Reports
+paths:
+  /auth/signup:
+    post:
+      tags:
+        - Auth
+      summary: SignUp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: prajwal.mahajan123@gmail.com
+                password: Minal@123
+      responses:
+        '201':
+          description: Created
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '47'
+            ETag:
+              schema:
+                type: string
+                example: W/"2f-GaQc/bA3bdqpSL8kzjHnau9H3so"
+            Set-Cookie:
+              schema:
+                type: string
+                example: session.sig=6FDHfrh4QdedjhATuJu6t-gIsUU; path=/; httponly
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:08:38 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 2
+                email: prajwal.mahajan123@gmail.com
+        '400':
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '75'
+            ETag:
+              schema:
+                type: string
+                example: W/"4b-53axvf8fHOWPkvzCFvLjZy07W30"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:07:02 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: SignUp
+                  value:
+                    statusCode: 400
+                    message: Email is already Taken
+                    error: Bad Request
+                example-1:
+                  summary: SignUp
+                  value:
+                    statusCode: 400
+                    message:
+                      - password must be a string
+                    error: Bad Request
+                example-2:
+                  summary: SignUp
+                  value:
+                    statusCode: 400
+                    message:
+                      - email must be an email
+                    error: Bad Request
+  /auth/signin:
+    post:
+      tags:
+        - Auth
+      summary: SignIn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: prajwal.mahajan@gmail.com
+                password: Minal@123
+      responses:
+        '201':
+          description: Created
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '44'
+            ETag:
+              schema:
+                type: string
+                example: W/"2c-v0YfW1+Rq4mDDi4C+jbEMWceUhs"
+            Set-Cookie:
+              schema:
+                type: string
+                example: session.sig=U4Zi75E-9nSmcH6NKDOIej0M5PY; path=/; httponly
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:08:57 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 1
+                email: prajwal.mahajan@gmail.com
+        '400':
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '67'
+            ETag:
+              schema:
+                type: string
+                example: W/"43-vfXKKY0VgiokoEhRFH/tIZX/Rwg"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:09:11 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: SignIn
+                  value:
+                    statusCode: 400
+                    message: Wrong Password
+                    error: Bad Request
+                example-1:
+                  summary: SignIn
+                  value:
+                    statusCode: 400
+                    message:
+                      - password must be a string
+                    error: Bad Request
+                example-2:
+                  summary: SignIn
+                  value:
+                    statusCode: 400
+                    message:
+                      - email must be an email
+                    error: Bad Request
+  /auth/whoami:
+    get:
+      tags:
+        - Auth
+      summary: Get Logged In User
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '44'
+            ETag:
+              schema:
+                type: string
+                example: W/"2c-v0YfW1+Rq4mDDi4C+jbEMWceUhs"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:10:11 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 1
+                email: prajwal.mahajan@gmail.com
+        '403':
+          description: Forbidden
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '69'
+            ETag:
+              schema:
+                type: string
+                example: W/"45-T7Txzr/IRLfQ4TEPfbVWLpgje4Q"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:10:30 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusCode: 403
+                message: Forbidden resource
+                error: Forbidden
+  /auth/signout:
+    get:
+      tags:
+        - Auth
+      summary: SignOut
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Set-Cookie:
+              schema:
+                type: string
+                example: session.sig=3euqrl66WHL9KyMIitICmDKEGCQ; path=/; httponly
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:10:21 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+            Content-Length:
+              schema:
+                type: integer
+                example: '0'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '400':
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '71'
+            ETag:
+              schema:
+                type: string
+                example: W/"47-KLWUlckGdYR5m6WFApoXv7xTlOA"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:10:57 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusCode: 400
+                message: User not Logged in
+                error: Bad Request
+  /reports:
+    post:
+      tags:
+        - Reports
+      summary: Create Report
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                make: ford
+                model: mustang
+                year: 1982
+                mileage: 50000
+                lng: 45
+                lat: 45
+                price: 20000
+      responses:
+        '201':
+          description: Created
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '128'
+            ETag:
+              schema:
+                type: string
+                example: W/"80-BSPqdAITGFPXbSAQKpjfFfAeHZk"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:12:08 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 4
+                price: 20000
+                year: 1982
+                lng: 45
+                lat: 45
+                make: ford
+                model: mustang
+                mileage: 50000
+                approved: false
+                userId: 1
+        '400':
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '603'
+            ETag:
+              schema:
+                type: string
+                example: W/"25b-usYJOp7p+glU7b9LbqIIoyCQidg"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:12:34 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusCode: 400
+                message:
+                  - make must be a string
+                  - model must be a string
+                  - year must not be greater than 2050
+                  - year must not be less than 1930
+                  - >-
+                    year must be a number conforming to the specified
+                    constraints
+                  - mileage must not be greater than 1000000
+                  - mileage must not be less than 0
+                  - >-
+                    mileage must be a number conforming to the specified
+                    constraints
+                  - lng must be a longitude string or number
+                  - lat must be a latitude string or number
+                  - price must not be greater than 1000000
+                  - price must not be less than 0
+                  - >-
+                    price must be a number conforming to the specified
+                    constraints
+                error: Bad Request
+        '403':
+          description: Forbidden
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '69'
+            ETag:
+              schema:
+                type: string
+                example: W/"45-T7Txzr/IRLfQ4TEPfbVWLpgje4Q"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:11:18 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusCode: 403
+                message: Forbidden resource
+                error: Forbidden
+    get:
+      tags:
+        - Reports
+      summary: Get Car Estimate
+      parameters:
+        - name: make
+          in: query
+          schema:
+            type: string
+          example: ford
+        - name: model
+          in: query
+          schema:
+            type: string
+          example: mustang
+        - name: year
+          in: query
+          schema:
+            type: integer
+          example: '1981'
+        - name: mileage
+          in: query
+          schema:
+            type: integer
+          example: '100000'
+        - name: lng
+          in: query
+          schema:
+            type: integer
+          example: '45'
+        - name: lat
+          in: query
+          schema:
+            type: integer
+          example: '45'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '15'
+            ETag:
+              schema:
+                type: string
+                example: W/"f-EBNLcWk+L21TUcpoD/jqP9vsfHo"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:14:59 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: Get Car Estimate
+                  value:
+                    price: 15000
+                example-1:
+                  summary: Get Car Estimate
+                  value:
+                    price: null
+        '400':
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '465'
+            ETag:
+              schema:
+                type: string
+                example: W/"1d1-bDneohQnoVfG4XQNbDTPralw8hE"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:16:08 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusCode: 400
+                message:
+                  - make must be a string
+                  - model must be a string
+                  - year must not be greater than 2050
+                  - year must not be less than 1930
+                  - >-
+                    year must be a number conforming to the specified
+                    constraints
+                  - mileage must not be greater than 1000000
+                  - mileage must not be less than 0
+                  - >-
+                    mileage must be a number conforming to the specified
+                    constraints
+                  - lng must be a longitude string or number
+                  - lat must be a latitude string or number
+                error: Bad Request
+        '403':
+          description: Forbidden
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '69'
+            ETag:
+              schema:
+                type: string
+                example: W/"45-T7Txzr/IRLfQ4TEPfbVWLpgje4Q"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:15:47 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusCode: 403
+                message: Forbidden resource
+                error: Forbidden
+  /reports/{id}:
+    patch:
+      tags:
+        - Reports
+      summary: Approve the Report
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                approved: true
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '127'
+            ETag:
+              schema:
+                type: string
+                example: W/"7f-uAQQ7kNAu18wli9Qu0ohFQRyxCU"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:13:50 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 3
+                price: 20000
+                year: 1982
+                lng: 45
+                lat: 45
+                make: ford
+                model: mustang
+                mileage: 50000
+                approved: true
+                userId: 1
+        '400':
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '87'
+            ETag:
+              schema:
+                type: string
+                example: W/"57-qDmrFXjLQV5sXJ3CINyhX2zjl0Q"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:13:41 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusCode: 400
+                message:
+                  - approved must be a boolean value
+                error: Bad Request
+        '403':
+          description: Forbidden
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '69'
+            ETag:
+              schema:
+                type: string
+                example: W/"45-T7Txzr/IRLfQ4TEPfbVWLpgje4Q"
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 May 2023 12:14:16 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusCode: 403
+                message: Forbidden resource
+                error: Forbidden

@@ -1,0 +1,1721 @@
+{
+	"info": {
+		"_postman_id": "3f5cc72a-39f0-4a16-8344-8d1745c20fb7",
+		"name": "My Car Value APIs Actual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20961150"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignUp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response test\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set(\"id\",jsonData.id);",
+									"    pm.expect(jsonData.password).to.eql(pm.collectionVariables.get(\"password\"));",
+									"    pm.expect(jsonData.email).to.eql(pm.collectionVariables.get(\"email\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"prajwal.mahajan123@gmail.com\",\n    \"password\" :\"Minal@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/signup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SignUp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"prajwal.mahajan@gmail.com\",\n    \"password\":\"Minal@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/signup",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-53axvf8fHOWPkvzCFvLjZy07W30\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:07:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email is already Taken\",\n    \"error\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "SignUp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"prajwal.mahajan@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/signup",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-krq5kK3LhefC2BusIdK4eEOREJQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:07:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"password must be a string\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "SignUp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"prajwal.mahajan\",\n    \"password\" :\"Minal@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/signup",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-jYTTf+uHDpur+UVxEWx/0ijBEQ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:08:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"email must be an email\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "SignUp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"prajwal.mahajan123@gmail.com\",\n    \"password\" :\"Minal@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/signup",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f-GaQc/bA3bdqpSL8kzjHnau9H3so\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "session=eyJ1c2VySWQiOjJ9; path=/; httponly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "session.sig=6FDHfrh4QdedjhATuJu6t-gIsUU; path=/; httponly"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:08:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"email\": \"prajwal.mahajan123@gmail.com\"\n}"
+						}
+					]
+				},
+				{
+					"name": "SignIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"prajwal.mahajan@gmail.com\",\n    \"password\":\"Minal@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/signin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SignIn",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"prajwal.mahajan@gmail.com\",\n    \"password\":\"Minal@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/signin",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-v0YfW1+Rq4mDDi4C+jbEMWceUhs\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "session=eyJ1c2VySWQiOjF9; path=/; httponly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "session.sig=U4Zi75E-9nSmcH6NKDOIej0M5PY; path=/; httponly"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:08:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"email\": \"prajwal.mahajan@gmail.com\"\n}"
+						},
+						{
+							"name": "SignIn",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"prajwal.mahajan@gmail.com\",\n    \"password\":\"Minal@1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/signin",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-vfXKKY0VgiokoEhRFH/tIZX/Rwg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:09:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Wrong Password\",\n    \"error\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "SignIn",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"prajwal.mahajan@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/signin",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-krq5kK3LhefC2BusIdK4eEOREJQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:09:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"password must be a string\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "SignIn",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"prajwal.mahajan\",\n    \"password\":\"Minal@1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/signin",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-jYTTf+uHDpur+UVxEWx/0ijBEQ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:09:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"email must be an email\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Logged In User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/whoami",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"whoami"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Logged In User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/auth/whoami",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"whoami"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-v0YfW1+Rq4mDDi4C+jbEMWceUhs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:10:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"email\": \"prajwal.mahajan@gmail.com\"\n}"
+						},
+						{
+							"name": "Get Logged In User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/auth/whoami",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"whoami"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-T7Txzr/IRLfQ4TEPfbVWLpgje4Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:10:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 403,\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\"\n}"
+						}
+					]
+				},
+				{
+					"name": "SignOut",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/signout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"signout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SignOut",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/auth/signout",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "session=eyJ1c2VySWQiOm51bGx9; path=/; httponly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "session.sig=3euqrl66WHL9KyMIitICmDKEGCQ; path=/; httponly"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:10:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "SignOut",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/auth/signout",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signout"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-KLWUlckGdYR5m6WFApoXv7xTlOA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:10:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"User not Logged in\",\n    \"error\": \"Bad Request\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Create Report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"make\": \"ford\",\r\n    \"model\": \"mustang\",\r\n    \"year\": 1982,\r\n    \"mileage\": 50000,\r\n    \"lng\": 45,\r\n    \"lat\": 45,\r\n    \"price\": 20000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/reports",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"reports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Report",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"make\": \"ford\",\r\n    \"model\": \"mustang\",\r\n    \"year\": 1982,\r\n    \"mileage\": 50000,\r\n    \"lng\": 45,\r\n    \"lat\": 45,\r\n    \"price\": 20000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-T7Txzr/IRLfQ4TEPfbVWLpgje4Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:11:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 403,\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\"\n}"
+						},
+						{
+							"name": "Create Report",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"make\": \"ford\",\r\n    \"model\": \"mustang\",\r\n    \"year\": 1982,\r\n    \"mileage\": 50000,\r\n    \"lng\": 45,\r\n    \"lat\": 45,\r\n    \"price\": 20000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "128"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"80-BSPqdAITGFPXbSAQKpjfFfAeHZk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:12:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"price\": 20000,\n    \"year\": 1982,\n    \"lng\": 45,\n    \"lat\": 45,\n    \"make\": \"ford\",\n    \"model\": \"mustang\",\n    \"mileage\": 50000,\n    \"approved\": false,\n    \"userId\": 1\n}"
+						},
+						{
+							"name": "Create Report",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"make\": \"ford\",\r\n    \"model\": \"mustang\",\r\n    \"year\": 1982,\r\n    \"mileage\": 50000,\r\n    \"lng\": 45,\r\n    \"lat\": 45,\r\n    \"price\": 20000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "603"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25b-usYJOp7p+glU7b9LbqIIoyCQidg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:12:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"make must be a string\",\n        \"model must be a string\",\n        \"year must not be greater than 2050\",\n        \"year must not be less than 1930\",\n        \"year must be a number conforming to the specified constraints\",\n        \"mileage must not be greater than 1000000\",\n        \"mileage must not be less than 0\",\n        \"mileage must be a number conforming to the specified constraints\",\n        \"lng must be a longitude string or number\",\n        \"lat must be a latitude string or number\",\n        \"price must not be greater than 1000000\",\n        \"price must not be less than 0\",\n        \"price must be a number conforming to the specified constraints\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Approve the Report",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"approved\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/reports/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Approve the Report",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "87"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"57-qDmrFXjLQV5sXJ3CINyhX2zjl0Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:13:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"approved must be a boolean value\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "Approve the Report",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"approved\" : true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-uAQQ7kNAu18wli9Qu0ohFQRyxCU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:13:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"price\": 20000,\n    \"year\": 1982,\n    \"lng\": 45,\n    \"lat\": 45,\n    \"make\": \"ford\",\n    \"model\": \"mustang\",\n    \"mileage\": 50000,\n    \"approved\": true,\n    \"userId\": 1\n}"
+						},
+						{
+							"name": "Approve the Report",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"approved\" : true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-T7Txzr/IRLfQ4TEPfbVWLpgje4Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:14:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 403,\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Car Estimate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/reports?make=ford&model=mustang&year=1981&mileage=100000&lng=45&lat=45",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"reports"
+							],
+							"query": [
+								{
+									"key": "make",
+									"value": "ford"
+								},
+								{
+									"key": "model",
+									"value": "mustang"
+								},
+								{
+									"key": "year",
+									"value": "1981"
+								},
+								{
+									"key": "mileage",
+									"value": "100000"
+								},
+								{
+									"key": "lng",
+									"value": "45"
+								},
+								{
+									"key": "lat",
+									"value": "45"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Car Estimate",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports?make=ford&model=mustang&year=1981&mileage=100000&lng=45&lat=45",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports"
+									],
+									"query": [
+										{
+											"key": "make",
+											"value": "ford"
+										},
+										{
+											"key": "model",
+											"value": "mustang"
+										},
+										{
+											"key": "year",
+											"value": "1981"
+										},
+										{
+											"key": "mileage",
+											"value": "100000"
+										},
+										{
+											"key": "lng",
+											"value": "45"
+										},
+										{
+											"key": "lat",
+											"value": "45"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f-EBNLcWk+L21TUcpoD/jqP9vsfHo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:14:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"price\": 15000\n}"
+						},
+						{
+							"name": "Get Car Estimate",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports?make=ford&model=mustang&year=1981&mileage=100000&lng=45&lat=45",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports"
+									],
+									"query": [
+										{
+											"key": "make",
+											"value": "ford"
+										},
+										{
+											"key": "model",
+											"value": "mustang"
+										},
+										{
+											"key": "year",
+											"value": "1981"
+										},
+										{
+											"key": "mileage",
+											"value": "100000"
+										},
+										{
+											"key": "lng",
+											"value": "45"
+										},
+										{
+											"key": "lat",
+											"value": "45"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-T7Txzr/IRLfQ4TEPfbVWLpgje4Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:15:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 403,\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\"\n}"
+						},
+						{
+							"name": "Get Car Estimate",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports"
+									],
+									"query": [
+										{
+											"key": "make",
+											"value": "ford",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "mustang",
+											"disabled": true
+										},
+										{
+											"key": "year",
+											"value": "1981",
+											"disabled": true
+										},
+										{
+											"key": "mileage",
+											"value": "100000",
+											"disabled": true
+										},
+										{
+											"key": "lng",
+											"value": "45",
+											"disabled": true
+										},
+										{
+											"key": "lat",
+											"value": "45",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "465"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d1-bDneohQnoVfG4XQNbDTPralw8hE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:16:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"make must be a string\",\n        \"model must be a string\",\n        \"year must not be greater than 2050\",\n        \"year must not be less than 1930\",\n        \"year must be a number conforming to the specified constraints\",\n        \"mileage must not be greater than 1000000\",\n        \"mileage must not be less than 0\",\n        \"mileage must be a number conforming to the specified constraints\",\n        \"lng must be a longitude string or number\",\n        \"lat must be a latitude string or number\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "Get Car Estimate",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/reports?make=ford&model=mustang&year=2000&mileage=100000&lng=45&lat=45",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reports"
+									],
+									"query": [
+										{
+											"key": "make",
+											"value": "ford"
+										},
+										{
+											"key": "model",
+											"value": "mustang"
+										},
+										{
+											"key": "year",
+											"value": "2000"
+										},
+										{
+											"key": "mileage",
+											"value": "100000"
+										},
+										{
+											"key": "lng",
+											"value": "45"
+										},
+										{
+											"key": "lat",
+											"value": "45"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-eK/Zxti0dUi2v9tNhPFDFWO46gM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 12:16:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"price\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": ""
+		}
+	]
+}
